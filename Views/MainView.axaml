@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:SongsInLearning.ViewModels"
+             xmlns:views="using:SongsInLearning.Views"
+             x:DataType="vm:MainViewModel"
+             x:Class="SongsInLearning.Views.MainView">
+<UserControl.Styles>
+    <Style Selector="ListBoxItem">
+      <Setter Property="Padding" Value="15 10"/>
+      <Setter Property="FontSize" Value="16"/>
+    </Style>
+  </UserControl.Styles>
+
+  <SplitView IsPaneOpen="{Binding IsSideBarVisible}"
+				   OpenPaneLength="300"
+				   CompactPaneLength="48"
+				   DisplayMode="CompactInline"
+				   Background="#010f2a"
+				   PaneBackground="#010f2a"
+				   Grid.RowSpan="5"
+				   >
+			<SplitView.Pane>
+				<Border BorderBrush="#44536d" BorderThickness="0, 0, 1, 0">
+					<Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
+						<Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
+
+							<Grid IsVisible="{Binding IsSideBarVisible}" Margin="10, 5" Classes="app-info-panel" Grid.Column="0" HorizontalAlignment="Stretch" Grid.RowDefinitions="*, Auto" ColumnDefinitions="*, 90">
+								<Image HorizontalAlignment="Left" VerticalAlignment="Stretch" Source="/Resources/Images/bosch-logo.png" Height="40" Width="90" Grid.Column="0" />
+								<Grid HorizontalAlignment="Center" Grid.Column="1" RowDefinitions="*, 15">
+									<TextBlock Classes="app-info-name" Text="Suppliers" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" />
+									<TextBlock Classes="app-info-version" x:DataType="vm:MainViewModel" Text="{Binding AppVersion}" TextAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" />
+								</Grid>
+							</Grid>
+
+							<Button Grid.Column="1" Background="Transparent" HorizontalAlignment="Center" Command="{Binding OpenSideBarCommand}">
+								<Image Source="/Resources/Icons/bars.png"
+									   Width="24"
+									   Height="24"
+									   RenderOptions.BitmapInterpolationMode="HighQuality" />
+							</Button>
+
+						</Grid>
+						<Border Grid.Row="1" IsVisible="{Binding IsSideBarVisible}" Height="1" Background="#44536d"></Border>
+						<Grid Grid.Row="2" Grid.RowDefinitions="Auto, *" IsVisible="{Binding IsSideBarVisible}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+							<views:SideBarView DataContext="{Binding SideBarViewModel}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+						</Grid>
+					</Grid>
+				</Border>
+			</SplitView.Pane>
+			
+		<SplitView.Content>
+				<Grid ColumnDefinitions="*" RowDefinitions="auto, *" >
+					<Grid.Background>
+						<LinearGradientBrush StartPoint="0%,100%" EndPoint="100%, 0%">
+							<GradientStop Color="#010f2a" Offset="0.2"/>
+							<GradientStop Color="#0d2348" Offset="0.5"/>
+							<GradientStop Color="#010f2a" Offset="0.9"/>
+							<GradientStop Color="#0d2348" Offset="1"/>
+						</LinearGradientBrush>
+					</Grid.Background>
+					<Image HorizontalAlignment="Stretch" Source="/Resources/Images/bosch-header.png"/>
+
+
+					<ContentControl Grid.Row="1" 
+					                Content="{Binding CurrentView}"
+					                HorizontalAlignment="Stretch"
+					                VerticalAlignment="Stretch"/>
+				</Grid>
+			</SplitView.Content>
+		</SplitView>
+</UserControl>

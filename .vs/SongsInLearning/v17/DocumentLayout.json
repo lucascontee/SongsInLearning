@@ -1,0 +1,222 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projetos\\Lucas\\SongsInLearning\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\views\\mainview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:views\\mainview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\views\\mainview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:views\\mainview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\models\\listitemtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:models\\listitemtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\views\\homeview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:views\\homeview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\views\\homeview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:views\\homeview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|d:\\projetos\\lucas\\songsinlearning\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF89ED3A-D575-4141-BD8A-4E05F49FCEDC}|SongsInLearning.csproj|solutionrelative:viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.axaml.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\App.axaml.cs",
+              "RelativeDocumentMoniker": "App.axaml.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\App.axaml.cs",
+              "RelativeToolTip": "App.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:42:42.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainWindow.axaml.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\MainWindow.axaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.axaml.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\MainWindow.axaml.cs",
+              "RelativeToolTip": "MainWindow.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:41:46.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "MainWindow.axaml",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\MainWindow.axaml",
+              "RelativeToolTip": "MainWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T01:41:02.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeView.axaml.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\HomeView.axaml.cs",
+              "RelativeDocumentMoniker": "Views\\HomeView.axaml.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\HomeView.axaml.cs",
+              "RelativeToolTip": "Views\\HomeView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:38:54.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeView.axaml",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\HomeView.axaml",
+              "RelativeDocumentMoniker": "Views\\HomeView.axaml",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\HomeView.axaml",
+              "RelativeToolTip": "Views\\HomeView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T01:38:51.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\ViewModels\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\HomeViewModel.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\ViewModels\\HomeViewModel.cs",
+              "RelativeToolTip": "ViewModels\\HomeViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:32:39.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ViewModelBase.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "ViewModels\\ViewModelBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:29:28.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ListItemTemplate.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\Models\\ListItemTemplate.cs",
+              "RelativeDocumentMoniker": "Models\\ListItemTemplate.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\Models\\ListItemTemplate.cs",
+              "RelativeToolTip": "Models\\ListItemTemplate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:23:41.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Music.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\Models\\Music.cs",
+              "RelativeDocumentMoniker": "Models\\Music.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\Models\\Music.cs",
+              "RelativeToolTip": "Models\\Music.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:19:38.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainView.axaml",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\MainView.axaml",
+              "RelativeDocumentMoniker": "Views\\MainView.axaml",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\MainView.axaml*",
+              "RelativeToolTip": "Views\\MainView.axaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T01:16:12.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainView.axaml.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\MainView.axaml.cs",
+              "RelativeDocumentMoniker": "Views\\MainView.axaml.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\Views\\MainView.axaml.cs",
+              "RelativeToolTip": "Views\\MainView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:16:11.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Projetos\\Lucas\\SongsInLearning\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
+              "ToolTip": "D:\\Projetos\\Lucas\\SongsInLearning\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAlwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T01:15:50.575Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
