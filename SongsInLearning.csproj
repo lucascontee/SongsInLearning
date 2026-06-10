@@ -30,4 +30,10 @@
     <Folder Include="Styles\" />
     <Folder Include="Assets\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Update="Resources\Icons.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+  </ItemGroup>
 </Project>

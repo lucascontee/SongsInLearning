@@ -26,7 +26,8 @@ namespace SongsInLearning
                .ConfigureServices((context, services) =>
                {
                    services.AddSingleton(context.Configuration);
-                   services.AddTransient<MainViewModel>();
+                   services.AddSingleton<MainViewModel>();
+                   services.AddTransient<HomeViewModel>();
 
                })
                .Build();

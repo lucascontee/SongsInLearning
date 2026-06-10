@@ -1,12 +1,55 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
-namespace SongsInLearning.ViewModels.Components
+namespace SongsInLearning.ViewModels;
+
+public partial class SideBarViewModel : ViewModelBase
 {
-    internal class SideBarViewModel
+    private readonly MainViewModel _mainViewModel;
+    public IRelayCommand CloseSideBarCommand { get; }
+
+    private ObservableCollection<SideBarItemViewModel> _items = new ObservableCollection<SideBarItemViewModel>();
+    public ObservableCollection<SideBarItemViewModel> Items
     {
+        get => _items;
+        set => SetProperty(ref _items, value);
     }
+
+    public SideBarViewModel()
+    {
+        CloseSideBarCommand = new RelayCommand(CloseSideBar);
+        BuildMenu();
+    }
+
+    public SideBarViewModel(MainViewModel mainViewModel) : this()
+    {
+        _mainViewModel = mainViewModel;
+    }
+
+    public void BuildMenu()
+    {
+        var newItems = new List<SideBarItemViewModel>
+        {
+            new SideBarItemViewModel("Principal", new List<SideBarItemViewModel>()
+            {
+                new SideBarItemViewModel("Home", "Home", 1, true),
+            }),
+        };
+
+        Items = new ObservableCollection<SideBarItemViewModel>(newItems);
+    }
+
+    private void CloseSideBar()
+    {
+        _mainViewModel.IsSideBarVisible = false;
+    }
+
+    [RelayCommand]
+    private void Navigate(string destination)
+    {
+        _mainViewModel?.Navigate(destination);
+    }
+
 }
+

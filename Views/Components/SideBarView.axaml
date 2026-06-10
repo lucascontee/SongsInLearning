@@ -3,6 +3,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SongsInLearning.SideBarView">
-  Welcome to Avalonia!
+			 xmlns:vm="clr-namespace:SongsInLearning.ViewModels"
+             x:Class="SongsInLearning.Views.SideBarView"
+		      x:DataType="vm:SideBarViewModel"
+			 x:Name="SideBar">
+
+		<UserControl.Styles>
+		<StyleInclude Source="avares://SongsInLearning/Resources/Styles.axaml" />
+	</UserControl.Styles>
+
+	<Grid ColumnDefinitions="*">
+		
+		<StackPanel Background="#010f2a">
+			<ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+				<ContentPresenter x:Name="contentPresenter" />
+			</ScrollViewer>
+
+		</StackPanel>
+
+	</Grid>
 </UserControl>

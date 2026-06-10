@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 using SongsInLearning.Database;
-using SongsInLearning.Models;
-using System;
-using System.Collections.ObjectModel;
 
 namespace SongsInLearning.ViewModels;
 
@@ -17,10 +16,17 @@ public partial class MainViewModel : ViewModelBase
     private ViewModelBase _currentView;
 
     public HomeViewModel HomeViewModel { get; }
-    
+    public SideBarViewModel SideBarViewModel { get; }
+
+
+    public IRelayCommand OpenSideBarCommand { get; }
+
+
     public MainViewModel()
     {
+        OpenSideBarCommand = new RelayCommand(OpenSideBar);
         HomeViewModel = new HomeViewModel();
+        SideBarViewModel = new SideBarViewModel(this);
     }
 
     public void OpenSideBar()
@@ -33,7 +39,7 @@ public partial class MainViewModel : ViewModelBase
         IsSideBarVisible = false;
     }
 
-    public void Navigate(string destination)
+    public void Navigate(string destination) 
     {
         CurrentView = destination switch
         {

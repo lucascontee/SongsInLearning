@@ -1,0 +1,297 @@
+<Styles xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<!-- Add Controls for Previewer Here -->
+		</Border>
+	</Design.PreviewWith>
+
+	<Style Selector="TextBlock">
+		<Setter Property="Foreground" Value="White"/>
+	</Style>
+
+	<Style Selector="TextBox">
+		<Setter Property="Foreground" Value="White"/>
+	</Style>
+
+	<Style Selector="TextBlock.Title">
+		<Setter Property="FontSize" Value="18"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Margin" Value="0, 0, 0, 10"/>
+	</Style>
+
+	<Style Selector="TextBlock.section-title">
+		<Setter Property="Background" Value="Gray" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="Height" Value="25" />
+	</Style>
+
+	<Style Selector="TextBlock.small">
+		<Setter Property="FontSize" Value="14"/>
+	</Style>
+
+	<Style Selector="TextBlock.medium">
+		<Setter Property="FontSize" Value="18"/>
+	</Style>
+
+	<Style Selector="TextBlock.large">
+		<Setter Property="FontSize" Value="24"/>
+	</Style>
+
+	<Style Selector="TextBlock.extraLarge">
+		<Setter Property="FontSize" Value="28"/>
+	</Style>
+
+	<Style Selector="StackPanel.top-bar">
+			<Setter Property="Background" Value="Gray" />
+	</Style>
+
+	<Style Selector="TextBlock.top-bar">
+		<Setter Property="Background" Value="Gray" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="Height" Value="25" />
+	</Style>
+
+	<Style Selector="Border.content">
+		<Setter Property="Margin" Value="5" />
+	</Style>
+
+	<Style Selector="PathIcon.small">
+		<Setter Property="Width" Value="22"/>
+		<Setter Property="Height" Value="22"/>
+	</Style>
+
+	<Style Selector="PathIcon.medium">
+		<Setter Property="Width" Value="26"/>
+		<Setter Property="Height" Value="26"/>
+	</Style>
+
+	<Style Selector="PathIcon.large">
+		<Setter Property="Width" Value="30"/>
+		<Setter Property="Height" Value="30"/>
+	</Style>
+
+	<Style Selector="PathIcon.extraLarge">
+		<Setter Property="Width" Value="36"/>
+		<Setter Property="Height" Value="36"/>
+	</Style>
+
+	<Style Selector="Button.MenuBtn">
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="Height" Value="40" />
+	</Style>
+	<Style Selector="TextBlock.MenuBtn">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Margin" Value="8, 0" />
+	</Style>
+
+	<Style Selector="Button.MenuBtn:disabled /template/ ContentPresenter">
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="Foreground" Value="Gray" />
+	</Style>
+
+	<Style Selector="Expander.MenuExpander">
+		<Setter Property="Background" Value="#000817" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="FontWeight" Value="Regular" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="Padding" Value="0, 10"/>
+
+		<Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+			<Setter Property="Background" Value="#010f2a" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="BorderThickness" Value="0" />
+		</Style>
+	</Style>
+
+	<Style Selector="Expander.MenuExpander:expanded /template/ ToggleButton#ExpanderHeader">
+		<Setter Property="Background" Value="#010f2a"/>
+	</Style>
+
+	<Style Selector="Expander.MenuExpander:expanded /template/ Border#ExpanderContent">
+		<Setter Property="BorderThickness" Value="0"/>
+	</Style>
+
+	<!--<Style Selector="Border.MenuBorder">
+	<Setter Property="RenderTransform" Value="translateX(-50px)"/>
+	<Setter Property="Opacity" Value="0" />
+	</Style>-->
+	<!--
+	<Style Selector="Border.MenuBorder.show">
+	<Setter Property="Opacity" Value="1" />
+	<Setter Property="RenderTransform" Value="translateX(0px)"/>
+	</Style>
+
+	<Style Selector="StackPanel.side-bar-menu">
+	<Setter Property="VerticalAlignment" Value="Top" />
+	<Setter Property="HorizontalAlignment" Value="Stretch" />
+	--><!--<Setter Property="Spacing" Value="5" />--><!--
+	<Setter Property="Orientation" Value="Vertical" />
+	</Style>-->
+
+	<!--<Style Selector="Button.side-bar-menu">
+	<Setter Property="HorizontalAlignment" Value="Left" />
+	<Setter Property="Width" Value="32" />
+	<Setter Property="Height" Value="32" />
+	<Setter Property="Margin" Value="7 10" />
+	</Style>-->
+
+	<Style Selector="StackPanel.app-info-panel">
+		<Setter Property="Orientation" Value="Vertical" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+
+	<Style Selector="TextBlock.app-info-name">
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+	<Style Selector="TextBlock.app-info-version">
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="FontSize" Value="10" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+
+	<Style Selector="PathIcon.icon-default">
+		<Setter Property="Height" Value="35" />
+		<Setter Property="Width" Value="35" />
+	</Style>
+
+	<Style Selector="Border.default-border">
+		<Setter Property="BorderBrush" Value="White" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="CornerRadius" Value="4" />
+	</Style>
+
+	<Style Selector="Border.section-border">
+		<Setter Property="BorderBrush" Value="Gray" />
+		<Setter Property="BorderThickness" Value="1" />
+	</Style>
+
+	<Style Selector="TextBlock.default-label">
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="Margin" Value="0, 0, 0, 5" />
+	</Style>
+
+
+	<Style Selector="TextBox.default-text-box">
+		<Setter Property="FontSize" Value="14"/>
+	</Style>
+
+	<Style Selector="TextBox.default-text-box /template/ TextPresenter">
+		<Setter Property="Margin" Value="2, 0"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+	</Style>
+
+	<Style Selector="Grid.info">
+		<Setter Property="Background" Value="DarkGray" />
+	</Style>
+
+	<Style Selector="Border.border">
+		<Setter Property="CornerRadius" Value="5" />
+	</Style>
+
+	<Style Selector="Border.border.info">
+		<Setter Property="Background" Value="DarkGray" />
+	</Style>
+
+	<Style Selector="Border.boxShadow">
+		<Setter Property="BoxShadow" Value="5 5 10 0 DarkGray" />
+	</Style>
+
+	<Style Selector="ListBox.itemListBox">
+		<Setter Property="Background" Value="#737373" />
+		<Setter Property="CornerRadius" Value="5"/>
+		<Setter Property="Margin" Value="5"/>
+		<Setter Property="Padding" Value="5"/>
+	</Style>
+
+	<Style Selector="ListBox.itemListBox ListBoxItem">
+			<Setter Property="BorderBrush" Value="White"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="CornerRadius" Value="5"/>
+		</Style>
+
+	<Style Selector="TabControl">
+		<Setter Property="BorderBrush" Value="Gray"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Margin" Value="2"/>
+
+	</Style>
+	<Style Selector="TabControl WrapPanel">
+		<Setter Property="Background" Value="DarkGray"/>
+	</Style>
+
+	<Style Selector="TabItem">
+		<Setter Property="FontSize" Value="24"/>
+		<Setter Property="Height" Value="50"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Padding" Value="10"/>
+		<Setter Property="BorderBrush" Value="Gray"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Background" Value="LightGray"/>
+		<Setter Property="Opacity" Value="0.9"/>
+	</Style>
+	<Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+	</Style>
+
+	<Style Selector="TabItem:focus">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Background" Value="DarkGray"/>
+		<Setter Property="Padding" Value="10 0"/>
+	</Style>
+
+	<Style Selector="TabItem:selected">
+		<Setter Property="FontSize" Value="26"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="Padding" Value="10 0"/>
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="BorderBrush" Value="White"/>
+	</Style>
+
+	<Style Selector="TabItem:selected /template/ Border#PART_SelectedPipe">
+		<Setter Property="Background" Value="Black"/>
+	</Style>
+
+	<Style Selector="ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Background" Value="LightGray"/>
+	</Style>
+
+	<Style Selector="ProgressBar:horizontal:indeterminate /template/ Border#PART_Indicator">
+		<Setter Property="Background" Value="#186185"/>
+	</Style>
+
+	<Style Selector="ProgressBar:horizontal:indeterminate /template/ Border#IndeterminateProgressBarIndicator">
+		<Setter Property="Background" Value="#186185"/>
+	</Style>
+
+	<Style Selector="ProgressBar:horizontal:indeterminate /template/ Border#IndeterminateProgressBarIndicator2">
+		<Setter Property="Background" Value="#186185"/>
+	</Style>
+
+	<Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+		<Setter Property="BorderBrush" Value="#186185"/>
+	</Style>
+
+	<Style Selector="DataValidationErrors">
+		<Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
+	</Style>
+</Styles>
