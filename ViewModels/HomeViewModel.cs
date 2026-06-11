@@ -1,5 +1,7 @@
-﻿using SongsInLearning.Database;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SongsInLearning.Database;
 using SongsInLearning.Models;
+using System;
 using System.Collections.ObjectModel;
 
 namespace SongsInLearning.ViewModels;

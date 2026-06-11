@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:SongsInLearning.ViewModels"
+             x:DataType="vm:SongCardViewModel"
+             Background="Black"
+             x:Class="SongsInLearning.Views.SongCardView">
+
+
+
+  <Border Background="#2c2c2c" 
+        BorderBrush="#00ab73" 
+        BorderThickness="1" 
+        CornerRadius="8" 
+        Padding="16" 
+        Margin="8"
+        HorizontalAlignment="Stretch"
+        Width="300"
+        Height="200">
+    
+    <Grid ColumnDefinitions="*, Auto">
+        
+        <StackPanel Grid.Column="0" Spacing="4" VerticalAlignment="Top">
+            
+            <TextBlock Text="Eruption" 
+                       FontSize="18" 
+                       FontWeight="SemiBold" 
+                       Foreground="White"
+                       TextTrimming="CharacterEllipsis"/>
+            
+            <TextBlock Text="Van Halen" 
+                       FontSize="14" 
+                       Foreground="#a4b0be"
+                       TextTrimming="CharacterEllipsis"/>
+            
+                
+                <TextBlock Text="1978" 
+                           FontSize="13" 
+                           Foreground="#8395a7" 
+                           VerticalAlignment="Center"/>
+
+            <Border Background="#3a3e44" 
+                        BorderBrush="#5b8fcc" 
+                        BorderThickness="1" 
+                        CornerRadius="4" 
+                        Padding="8,3">
+                    <TextBlock Text="Em andamento" 
+                               FontSize="11" 
+                               FontWeight="Medium" 
+                               Foreground="#5b8fcc"/>
+                </Border>
+
+            <StackPanel Orientation="Horizontal" Spacing="10">				
+                <TextBlock Text="Guitarra" 
+                    FontSize="13" 
+                    FontWeight="Medium" 
+                    Foreground="#a4b0be"/>
+
+ 
+
+                <TextBlock Text="Difícil" 
+                    FontSize="13" 
+                    FontWeight="Medium" 
+                    Foreground="#e05252"/>
+            </StackPanel>
+
+ 
+        </StackPanel>
+
+        <Grid Grid.Column="1" Width="40" Height="40" Margin="16,0,0,0" VerticalAlignment="Top">
+            
+            <PathIcon Data="{StaticResource EletricGuitarRegular}" 
+                      Width="26" Height="26" 
+                      Foreground="#00ab73"/>
+            
+        </Grid>
+        
+    </Grid>
+</Border>
+</UserControl>

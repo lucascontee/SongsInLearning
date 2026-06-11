@@ -27,7 +27,7 @@
 					<Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
 						<Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
 
-							<Grid IsVisible="{Binding IsSideBarVisible}" Margin="10, 5" Classes="app-info-panel" Grid.Column="0" HorizontalAlignment="Stretch" Grid.RowDefinitions="*, Auto" ColumnDefinitions="*, 90">
+							<Grid IsVisible="True" Margin="10, 5" Classes="app-info-panel" Grid.Column="0" HorizontalAlignment="Stretch" Grid.RowDefinitions="*, Auto" ColumnDefinitions="*, 90">
 								<Grid HorizontalAlignment="Center" Grid.Column="1" RowDefinitions="*, 15">
 								</Grid>
 							</Grid>
@@ -37,8 +37,8 @@
 							</StackPanel>
 
 						</Grid>
-						<Border Grid.Row="1" IsVisible="{Binding IsSideBarVisible}" Height="1" Background="#44536d"></Border>
-						<Grid Grid.Row="2" Grid.RowDefinitions="Auto, *" IsVisible="{Binding IsSideBarVisible}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+						<Border Grid.Row="1" IsVisible="True" Height="1" Background="#44536d"></Border>
+						<Grid Grid.Row="2" Grid.RowDefinitions="Auto, *" IsVisible="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 							<views:SideBarView DataContext="{Binding SideBarViewModel}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 						</Grid>
 					</Grid>

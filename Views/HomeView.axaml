@@ -4,12 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="using:SongsInLearning.ViewModels"
+             xmlns:views="using:SongsInLearning.Views"
              x:DataType="vm:HomeViewModel"
              x:Class="SongsInLearning.Views.HomeView"
              Background="#2c2c2c">
 
-    <StackPanel>
-
-    </StackPanel>
-
+    <views:SongCardView>
+    <views:SongCardView.DataContext>
+        <vm:SongCardViewModel />
+    </views:SongCardView.DataContext>
+</views:SongCardView>
 </UserControl>
