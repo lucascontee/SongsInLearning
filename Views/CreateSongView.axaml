@@ -1,0 +1,100 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+             x:Class="SongsInLearning.CreateSongView"
+             Background="#2c2c2c">
+
+    <UserControl.Styles>
+        <Style Selector="ComboBox:focus /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#3f3f3f" />
+        </Style>
+
+        <Style Selector="ComboBox:dropdownopen /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#3f3f3f" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#454545" /> 
+        </Style>
+
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="#3f3f3f" />
+        </Style>
+
+        <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#454545" /> 
+        </Style>
+
+        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#008a5c" /> <Setter Property="Foreground" Value="#e8e8e8" /> 
+    </Style>
+    </UserControl.Styles>
+  
+    <StackPanel>
+		
+        <TextBlock Foreground="#e8e8e8" Text="Nova música" Margin="20" FontSize="24"/>
+
+        <Border Background="#363636" 
+                CornerRadius="20"
+                MinWidth="400" 
+                MaxWidth="500"
+                BorderThickness="1"
+                BorderBrush="#4e4e4e"
+                HorizontalAlignment="Left"
+                Margin="20, 0, 0, 0">
+			<StackPanel  
+                    MinWidth="400" 
+                    MaxWidth="500"
+                    Margin="30" 
+                    HorizontalAlignment="Left" >
+			<StackPanel Spacing="5" Margin="20, 10">
+                <TextBlock Text="Nome da Música" Foreground="#e8e8e8"  />
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+            </StackPanel>
+
+            <StackPanel Spacing="5" Margin="20, 10">
+                <TextBlock Text="Artista / Banda" Foreground="#e8e8e8" />
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+            </StackPanel>
+
+            <StackPanel Spacing="5" Margin="20, 10">
+                <TextBlock Text="Ano" Foreground="#e8e8e8" />
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e" />
+            </StackPanel>
+
+            <StackPanel Spacing="5" Margin="20, 10">
+                <TextBlock Text="Dificuldade" Foreground="#e8e8e8" />
+                <ComboBox Background="#3f3f3f" Width="200" BorderBrush="#4e4e4e"/>
+            </StackPanel>
+
+            <StackPanel Spacing="5" Margin="20, 10">
+                <TextBlock Text="Afinação" Foreground="#e8e8e8" />
+                <ComboBox Background="#3f3f3f" Width="200" BorderBrush="#4e4e4e"/>
+            </StackPanel>
+
+            <StackPanel Spacing="5" Margin="20, 10, 10, 20">
+                <TextBlock Text="BPM" Foreground="#e8e8e8" />
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+            </StackPanel>
+
+            <Button Margin="20, 10" 
+                    Background="#00ab73"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Height="40"
+                    Foreground="#e8e8e8">Adicionar música</Button>
+        </StackPanel>
+        </Border>
+        
+
+    </StackPanel>
+</UserControl>
