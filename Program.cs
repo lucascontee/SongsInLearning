@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SongsInLearning.Services;
 using SongsInLearning.ViewModels;
 using System;
 using System.Net;
@@ -26,8 +27,11 @@ namespace SongsInLearning
                .ConfigureServices((context, services) =>
                {
                    services.AddSingleton(context.Configuration);
+                   services.AddTransient<MusicService>();
+
                    services.AddSingleton<MainViewModel>();
                    services.AddTransient<HomeViewModel>();
+                   services.AddTransient<CreateSongViewModel>();
 
                })
                .Build();

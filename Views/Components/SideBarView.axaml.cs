@@ -1,4 +1,6 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Media;
 using SongsInLearning.ViewModels;
 
@@ -71,13 +73,49 @@ public partial class SideBarView : UserControl
 
     private Button CreateNavigationButton(SideBarItemViewModel vm)
     {
+
+        var stackPanel = new StackPanel()
+        {
+            Orientation = Orientation.Horizontal,
+            Spacing = 12,
+            VerticalAlignment = VerticalAlignment.Center,
+        };
+
+        var pathIcon = new PathIcon()
+        {
+            Width = 20,
+            Height = 20,
+            VerticalAlignment = VerticalAlignment.Center,
+            Foreground = Brush.Parse("#e8e8e8")
+        };
+
+        if (!string.IsNullOrEmpty(vm.IconKey) &&
+        Application.Current!.TryFindResource(vm.IconKey, out var resource) &&
+        resource is StreamGeometry geometry)
+        {
+            pathIcon.Data = geometry;
+        }
+
+        var textBlock = new TextBlock()
+        {
+            Text = vm.Title,
+            VerticalAlignment = VerticalAlignment.Center,
+            Foreground = Brush.Parse("#e8e8e8")
+
+        };
+
+        stackPanel.Children.Add(pathIcon);
+        stackPanel.Children.Add(textBlock);
+
         var button = new Button()
         {
-            Content = vm.Title,
+            Content = stackPanel,
             Classes = { "MenuBtn" },
             CommandParameter = vm.Key,
-            Command = ((SideBarViewModel)DataContext).NavigateCommand,
-            IsEnabled = vm.Enabled
+            Command = ((SideBarViewModel)DataContext!).NavigateCommand,
+            IsEnabled = vm.Enabled,
+            Height = 50,
+
         };
 
         return button;

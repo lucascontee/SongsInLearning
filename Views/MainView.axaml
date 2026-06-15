@@ -23,7 +23,7 @@
 				   Grid.RowSpan="5"
 				   >
 			<SplitView.Pane>
-				<Border BorderBrush="#44536d" BorderThickness="0, 0, 1, 0">
+				<Border BorderBrush="#00ab73" BorderThickness="0, 0, 1, 0">
 					<Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
 						<Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
 
@@ -32,12 +32,25 @@
 								</Grid>
 							</Grid>
 
-							<StackPanel Margin="10">
-								<TextBlock Text="Songs In Learning" Foreground="White"></TextBlock>
+							<StackPanel Margin="10, 10, 10, 40" 
+										Orientation="Horizontal" 
+										Spacing="10" 
+										VerticalAlignment="Center">
+    
+								<Image Source="avares://SongsInLearning/Assets/logosil.png" 
+									   Width="32" 
+									   Height="32" 
+									   VerticalAlignment="Center" />
+    
+								<TextBlock Text="Songs In Learning" 
+										   Foreground="#e8e8e8" 
+										   VerticalAlignment="Center" 
+										   FontSize="18" 
+										   FontWeight="SemiBold"/>
+               
 							</StackPanel>
 
 						</Grid>
-						<Border Grid.Row="1" IsVisible="True" Height="1" Background="#44536d"></Border>
 						<Grid Grid.Row="2" Grid.RowDefinitions="Auto, *" IsVisible="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 							<views:SideBarView DataContext="{Binding SideBarViewModel}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 						</Grid>

@@ -11,6 +11,7 @@ namespace SongsInLearning.ViewModels
         public string Key { get; set; } = string.Empty;
         public int PrivilegeId { get; set; } = 0;
         public bool Enabled { get; set; } = true;
+        public string IconKey { get; set; }
 
         public ICollection<SideBarItemViewModel> Children { get; set; } = new List<SideBarItemViewModel>();
         public IRelayCommand<string>? NavigateCommand { get; set; }
@@ -29,13 +30,14 @@ namespace SongsInLearning.ViewModels
             Children = children;
         }
 
-        public SideBarItemViewModel(string key, string title, int privilegeId, bool enabled)
+        public SideBarItemViewModel(string key, string title, int privilegeId, bool enabled, string iconKey)
         {
             IsCategory = false;
             Key = key;
             Title = title;
             PrivilegeId = privilegeId;
             Enabled = enabled;
+            IconKey = iconKey;
         }
     }
 }

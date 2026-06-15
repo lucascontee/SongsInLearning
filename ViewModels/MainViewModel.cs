@@ -44,6 +44,7 @@ public partial class MainViewModel : ViewModelBase
         CurrentView = destination switch
         {
             "Home" => Program.AppHost.Services.GetRequiredService<HomeViewModel>(),
+            "NewSong" => Program.AppHost.Services.GetRequiredService<CreateSongViewModel>(),
             _ => CurrentView
         };
 

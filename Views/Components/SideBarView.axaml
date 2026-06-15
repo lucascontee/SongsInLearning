@@ -8,13 +8,13 @@
 		      x:DataType="vm:SideBarViewModel"
 			 x:Name="SideBar">
 
-		<UserControl.Styles>
+	<UserControl.Styles>
 		<StyleInclude Source="avares://SongsInLearning/Resources/Styles.axaml" />
 	</UserControl.Styles>
 
 	<Grid ColumnDefinitions="*">
 		
-		<StackPanel Background="#010f2a">
+		<StackPanel Background="Transparent">
 			<ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 				<ContentPresenter x:Name="contentPresenter" />
 			</ScrollViewer>

@@ -31,10 +31,9 @@ public partial class SideBarViewModel : ViewModelBase
     {
         var newItems = new List<SideBarItemViewModel>
         {
-            new SideBarItemViewModel("Principal", new List<SideBarItemViewModel>()
-            {
-                new SideBarItemViewModel("Home", "Home", 1, true),
-            }),
+            new SideBarItemViewModel("Home", "Home", 1, true, "HomeRegular"),
+            new SideBarItemViewModel("NewSong", "Nova música", 1, true, "AddRegular"),
+
         };
 
         Items = new ObservableCollection<SideBarItemViewModel>(newItems);

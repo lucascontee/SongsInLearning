@@ -28,7 +28,10 @@
 
   <ItemGroup>
     <Folder Include="Styles\" />
-    <Folder Include="Assets\" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
   <ItemGroup>

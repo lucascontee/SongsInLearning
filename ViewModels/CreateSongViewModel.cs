@@ -15,15 +15,12 @@ using System.Threading.Tasks;
 
 namespace SongsInLearning.ViewModels;
 
-public partial class CreateMusicViewModel : ObservableObject
+public partial class CreateSongViewModel : ViewModelBase
 {
-    private readonly ILogger<CreateMusicViewModel> _logger;
     private readonly MusicService _musicService;
 
-    public CreateMusicViewModel(ILogger<CreateMusicViewModel> logger, MusicService musicService)
+    public CreateSongViewModel()
     {
-        _logger = logger;
-        _musicService = musicService;
 
         Difficulties = Enum.GetValues<Difficulty>().ToList();
         Tunings = Enum.GetValues<Tuning>().ToList();
