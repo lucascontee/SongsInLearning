@@ -60,35 +60,53 @@
                     HorizontalAlignment="Left" >
 			<StackPanel Spacing="5" Margin="20, 10">
                 <TextBlock Text="Nome da Música" Foreground="#e8e8e8"  />
-                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e" Text="{Binding Name}"/>
             </StackPanel>
 
             <StackPanel Spacing="5" Margin="20, 10">
                 <TextBlock Text="Artista / Banda" Foreground="#e8e8e8" />
-                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e" Text="{Binding Artist}"/>
             </StackPanel>
 
             <StackPanel Spacing="5" Margin="20, 10">
                 <TextBlock Text="Ano" Foreground="#e8e8e8" />
-                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e" />
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e" Text="{Binding YearText}"/>
+            </StackPanel>
+
+            <StackPanel Spacing="5" Margin="20, 10">
+                <TextBlock Text="Instrumento" Foreground="#e8e8e8" />
+                <ComboBox Background="#3f3f3f" 
+                          Width="200" 
+                          BorderBrush="#4e4e4e" 
+                          SelectedValue="{Binding SelectedInstrument}" 
+                          ItemsSource="{Binding Instruments}"/>
             </StackPanel>
 
             <StackPanel Spacing="5" Margin="20, 10">
                 <TextBlock Text="Dificuldade" Foreground="#e8e8e8" />
-                <ComboBox Background="#3f3f3f" Width="200" BorderBrush="#4e4e4e"/>
+                <ComboBox Background="#3f3f3f" 
+                          Width="200" 
+                          BorderBrush="#4e4e4e" 
+                          SelectedValue="{Binding SelectedDifficulty}"
+                          ItemsSource="{Binding Difficulties}"/>
             </StackPanel>
 
             <StackPanel Spacing="5" Margin="20, 10">
                 <TextBlock Text="Afinação" Foreground="#e8e8e8" />
-                <ComboBox Background="#3f3f3f" Width="200" BorderBrush="#4e4e4e"/>
+                <ComboBox Background="#3f3f3f" 
+                          Width="200" 
+                          BorderBrush="#4e4e4e" 
+                          SelectedValue="{Binding SelectedTuning}"
+                          ItemsSource="{Binding Tunings}"/>
             </StackPanel>
 
             <StackPanel Spacing="5" Margin="20, 10, 10, 20">
                 <TextBlock Text="BPM" Foreground="#e8e8e8" />
-                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+                <TextBox Background="#3f3f3f" BorderBrush="#4e4e4e" Text="{Binding BpmText}"/>
             </StackPanel>
 
-            <Button Margin="20, 10" 
+            <Button Margin="20, 10, 10, 20" 
+                    Command="{Binding SaveCommand}"
                     Background="#00ab73"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Center"

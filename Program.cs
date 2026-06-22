@@ -1,7 +1,9 @@
 ﻿using Avalonia;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SongsInLearning.Database;
 using SongsInLearning.Services;
 using SongsInLearning.ViewModels;
 using System;
@@ -22,14 +24,19 @@ namespace SongsInLearning
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-
             AppHost = Host.CreateDefaultBuilder(args)               
                .ConfigureServices((context, services) =>
                {
+                   services.AddDbContext<MusicDbContext>(options =>
+                   {
+                       options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection"));
+                   }, ServiceLifetime.Transient);
+
                    services.AddSingleton(context.Configuration);
-                   services.AddTransient<MusicService>();
+                   services.AddTransient<SongService>();
 
                    services.AddSingleton<MainViewModel>();
+
                    services.AddTransient<HomeViewModel>();
                    services.AddTransient<CreateSongViewModel>();
 

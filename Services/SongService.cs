@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SongsInLearning.Services;
 
-public class MusicService
+public class SongService
 {
     private readonly MusicDbContext _context;
 
-    public MusicService(MusicDbContext context)
+    public SongService(MusicDbContext context)
     {
         _context = context;
     }

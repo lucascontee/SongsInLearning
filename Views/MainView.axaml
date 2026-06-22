@@ -23,7 +23,7 @@
 				   Grid.RowSpan="5"
 				   >
 			<SplitView.Pane>
-				<Border BorderBrush="#00ab73" BorderThickness="0, 0, 1, 0">
+				<Border BorderBrush="#4e4e4e" BorderThickness="0, 0, 1, 0">
 					<Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
 						<Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
 

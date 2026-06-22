@@ -17,11 +17,12 @@ namespace SongsInLearning.ViewModels;
 
 public partial class CreateSongViewModel : ViewModelBase
 {
-    private readonly MusicService _musicService;
+    private SongService _songService;
 
-    public CreateSongViewModel()
+    public CreateSongViewModel(SongService SongService)
     {
 
+        _songService = SongService;
         Difficulties = Enum.GetValues<Difficulty>().ToList();
         Tunings = Enum.GetValues<Tuning>().ToList();
         Instruments = Enum.GetValues<Instrument>().ToList();
@@ -93,7 +94,7 @@ public partial class CreateSongViewModel : ViewModelBase
             return;
         }
 
-        await _musicService.AddAsync(music);
+        await _songService.AddAsync(music);
         //await Application.Current.MainPage.DisplayAlert("Sucesso", "Música salva com sucesso!", "OK");
 
 
