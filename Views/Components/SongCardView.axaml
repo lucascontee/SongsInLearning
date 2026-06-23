@@ -5,7 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="using:SongsInLearning.ViewModels"
              x:DataType="vm:SongCardViewModel"
-             Background="Black"
+             Background="Transparent"
              x:Class="SongsInLearning.Views.SongCardView">
 
 
@@ -24,20 +24,20 @@
         
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
             
-            <TextBlock Text="Eruption" 
+            <TextBlock Text="{Binding Name}" 
                        FontSize="18" 
                        FontWeight="SemiBold" 
                        Foreground="White"
                        TextTrimming="CharacterEllipsis" Margin="0, 0, 0, 5"/>
             
-            <TextBlock Text="Van Halen" 
+            <TextBlock Text="{Binding Artist}" 
                        FontSize="14" 
                        Foreground="#a4b0be"
                        TextTrimming="CharacterEllipsis"
                        Margin="0, 0, 0, 0"/>
             
                 
-                <TextBlock Text="1978" 
+                <TextBlock Text="{Binding Year}" 
                            FontSize="13" 
                            Foreground="#8395a7" 
                            VerticalAlignment="Center"
@@ -48,7 +48,7 @@
                                FontSize="13" 
                                Foreground="#8395a7" 
                                VerticalAlignment="Center"/>
-                    <TextBlock Text="Em andamento" 
+                    <TextBlock Text="{Binding Progress}" 
                                FontSize="13" 
                     FontWeight="Medium" 
                     Foreground="#a4b0be"/>
@@ -60,7 +60,7 @@
                     Foreground="#8395a7" 
                     VerticalAlignment="Center"/>
 
-                <TextBlock Text="Guitarra" 
+                <TextBlock Text="{Binding Instrument}" 
                     FontSize="13" 
                     FontWeight="Medium" 
                     Foreground="#a4b0be"/>
@@ -71,7 +71,7 @@
                     FontSize="13" 
                     Foreground="#8395a7" 
                     VerticalAlignment="Center"/>
-                <TextBlock Text="Difícil" 
+                <TextBlock Text="{Binding Difficulty}" 
                     FontSize="13" 
                     FontWeight="Medium" 
                     Foreground="#e05252"/>

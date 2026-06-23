@@ -9,9 +9,13 @@
              x:Class="SongsInLearning.Views.HomeView"
              Background="#2c2c2c">
 
-    <views:SongCardView>
-    <views:SongCardView.DataContext>
-        <vm:SongCardViewModel />
-    </views:SongCardView.DataContext>
-</views:SongCardView>
+    <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding SongCards}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <views:SongCardView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
 </UserControl>

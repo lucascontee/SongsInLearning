@@ -3,7 +3,7 @@ using SongsInLearning.Models;
 
 
 namespace SongsInLearning.Validators;
-public class MusicValidator : AbstractValidator<Music>
+public class MusicValidator : AbstractValidator<Song>
 {
 
     public MusicValidator()

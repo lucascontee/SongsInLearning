@@ -1,29 +1,28 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using SongsInLearning.Database;
-using SongsInLearning.Models;
-using System;
+﻿using SongsInLearning.Services;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace SongsInLearning.ViewModels;
 
 public partial class HomeViewModel : ViewModelBase
 {
-    private readonly MusicDbContext _dbContext;
+    private readonly SongService _songService; // Assumindo a existência deste serviço
 
-    public ObservableCollection<Music> Musics { get; } = new();
+    public ObservableCollection<SongCardViewModel> SongCards { get; } = new();
 
-    public HomeViewModel()
+    public HomeViewModel(SongService songService)
     {
-        //_dbContext = dbContext;
-        //LoadMusics();
+        _songService = songService;
+        LoadSongs();
     }
 
-    //private void LoadMusics()
-    //{
-    //    var list = _dbContext.Musics.ToList();
-    //    Musics.Clear();
-    //    foreach (var music in list)
-    //        Musics.Add(music);
-    //}
+    private async Task LoadSongs()
+    {
+        var songs = await _songService.GetAllAsync();
+        SongCards.Clear();
+        foreach (var song in songs)
+        {
+            SongCards.Add(new SongCardViewModel(song));
+        }
+    }
 }
- 

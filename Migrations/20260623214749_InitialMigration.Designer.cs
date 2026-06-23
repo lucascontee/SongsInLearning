@@ -12,7 +12,7 @@ using SongsInLearning.Database;
 namespace SongsInLearning.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    [Migration("20260622222234_InitialMigration")]
+    [Migration("20260623214749_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace SongsInLearning.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SongsInLearning.Models.Music", b =>
+            modelBuilder.Entity("SongsInLearning.Models.Song", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

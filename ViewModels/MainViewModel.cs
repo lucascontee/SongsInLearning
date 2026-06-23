@@ -25,7 +25,7 @@ public partial class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         OpenSideBarCommand = new RelayCommand(OpenSideBar);
-        HomeViewModel = new HomeViewModel();
+        HomeViewModel = Program.AppHost.Services.GetRequiredService<HomeViewModel>();
         SideBarViewModel = new SideBarViewModel(this);
     }
 

@@ -71,7 +71,7 @@ public partial class CreateSongViewModel : ViewModelBase
             return;
         }
 
-        var music = new Music
+        var song = new Song
         {
             Name = Name,
             Artist = Artist,
@@ -86,7 +86,7 @@ public partial class CreateSongViewModel : ViewModelBase
         };
 
         var validator = new MusicValidator();
-        ValidationResult result = validator.Validate(music);
+        ValidationResult result = validator.Validate(song);
 
         if (!result.IsValid)
         {
@@ -94,7 +94,7 @@ public partial class CreateSongViewModel : ViewModelBase
             return;
         }
 
-        await _songService.AddAsync(music);
+        await _songService.AddAsync(song);
         //await Application.Current.MainPage.DisplayAlert("Sucesso", "Música salva com sucesso!", "OK");
 
 

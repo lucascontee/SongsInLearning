@@ -14,7 +14,7 @@ public class IAService
 
     RegionInfo currentRegion = RegionInfo.CurrentRegion;
 
-    public async Task<string> CreateAnnotationAsync(Music music)
+    public async Task<string> CreateAnnotationAsync(Song music)
     {
         string countryName = currentRegion.EnglishName;
 

@@ -3,7 +3,7 @@ using System;
 using Instrument = SongsInLearning.Models.Enums.Instrument;
 
 namespace SongsInLearning.Models;
-public class Music
+public class Song
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

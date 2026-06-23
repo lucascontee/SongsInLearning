@@ -6,10 +6,10 @@ public class MusicDbContext : DbContext
 {
     public MusicDbContext(DbContextOptions<MusicDbContext> options) : base(options) { }
 
-    public DbSet<Music> Musics { get; set; }
+    public DbSet<Song> Musics { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Music>(entity =>
+        modelBuilder.Entity<Song>(entity =>
         {
             entity.Property(m => m.Name).HasMaxLength(100).IsRequired();
 

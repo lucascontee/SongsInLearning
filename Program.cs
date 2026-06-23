@@ -33,6 +33,7 @@ namespace SongsInLearning
                    }, ServiceLifetime.Transient);
 
                    services.AddSingleton(context.Configuration);
+                   services.AddTransient<IAService>();
                    services.AddTransient<SongService>();
 
                    services.AddSingleton<MainViewModel>();

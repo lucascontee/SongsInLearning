@@ -15,9 +15,9 @@ public partial class ListMusicsFiltredViewModel : ObservableObject
 {
     private readonly MusicDbContext _dbContext;
 
-    public ObservableCollection<Music> MusicsLearning { get; } = new();
-    public ObservableCollection<Music> MusicsLearned { get; } = new();
-    public ObservableCollection<Music> MusicsToLearn { get; } = new();
+    public ObservableCollection<Song> MusicsLearning { get; } = new();
+    public ObservableCollection<Song> MusicsLearned { get; } = new();
+    public ObservableCollection<Song> MusicsToLearn { get; } = new();
 
     public ListMusicsFiltredViewModel(MusicDbContext dbContext)
     {

@@ -11,34 +11,28 @@ namespace SongsInLearning.Services;
 public class SongService
 {
     private readonly MusicDbContext _context;
+    private readonly IAService _iAService;
 
-    public SongService(MusicDbContext context)
+    public SongService(MusicDbContext context, IAService iaService)
     {
         _context = context;
+        _iAService = iaService;
     }
 
-    public Task<List<Music>> GetAllAsync()
+    public Task<List<Song>> GetAllAsync()
     {
        return _context.Musics.ToListAsync();
     }
 
-    public async Task AddAsync(Music music)
+    public async Task AddAsync(Song song)
     {
-        IAService iaService = new();
 
-        var iaInfos = await iaService.CreateAnnotationAsync(music);
-
-        string iaInfosToString = Convert.ToString(iaInfos)!;
+        string iaInfosToString = "Failed to generate IA Infos";
 
 
-        if (iaInfosToString.IsNullOrEmpty())
-        {
-            iaInfosToString = "Failed to generate IA Infos";
-        }
+        song.InfosGeneratedByIA = iaInfosToString;
 
-        music.InfosGeneratedByIA = iaInfosToString;
-
-        _context.Musics.Add(music);
+        _context.Musics.Add(song);
         await _context.SaveChangesAsync();
     }
 }

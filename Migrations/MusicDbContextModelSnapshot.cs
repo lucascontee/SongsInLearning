@@ -22,7 +22,7 @@ namespace SongsInLearning.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SongsInLearning.Models.Music", b =>
+            modelBuilder.Entity("SongsInLearning.Models.Song", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
