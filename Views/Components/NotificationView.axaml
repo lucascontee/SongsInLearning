@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:SongsInLearning.ViewModels"
+             x:DataType="vm:NotificationViewModel"
+             x:Class="SongsInLearning.Views.NotificationView"
+             Background="Transparent"
+             Width="250"
+             Height="80">
+
+    <UserControl.Transitions>
+        <Transitions>
+            <DoubleTransition Property="Opacity" Duration="0:0:0.3"/>
+        </Transitions>
+    </UserControl.Transitions>
+
+    <Border Background="#1c1c1c"
+            BorderBrush="#4e4e4e"
+            BorderThickness="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            CornerRadius="10">
+        
+        <Grid ColumnDefinitions="Auto, *" Margin="10">
+
+		    <PathIcon Data="{StaticResource CheckCircleRegular}" 
+                      Width="32" Height="32" 
+                      Foreground="#00ab73"
+                      VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Column="1"
+                       Foreground="White"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0"
+                       Text="{Binding Message}">
+            </TextBlock>
+        </Grid>
+    </Border>
+
+</UserControl>

@@ -6,7 +6,7 @@ namespace SongsInLearning.ViewModels;
 
 public partial class HomeViewModel : ViewModelBase
 {
-    private readonly SongService _songService; // Assumindo a existência deste serviço
+    private readonly SongService _songService;
 
     public ObservableCollection<SongCardViewModel> SongCards { get; } = new();
 

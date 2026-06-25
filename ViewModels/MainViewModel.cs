@@ -1,13 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.DependencyInjection;
 using SongsInLearning.Database;
+using SongsInLearning.Messages;
+using SongsInLearning.Models.Enums;
+using System.Threading.Tasks;
 
 namespace SongsInLearning.ViewModels;
 
-public partial class MainViewModel : ViewModelBase
+public partial class MainViewModel : ObservableObject
 {
-    private readonly MusicDbContext _dbContext;
 
     [ObservableProperty]
     public bool _isSideBarVisible;
@@ -17,6 +20,7 @@ public partial class MainViewModel : ViewModelBase
 
     public HomeViewModel HomeViewModel { get; }
     public SideBarViewModel SideBarViewModel { get; }
+    public NotificationViewModel NotificationViewModel { get; }
 
 
     public IRelayCommand OpenSideBarCommand { get; }
@@ -25,8 +29,19 @@ public partial class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         OpenSideBarCommand = new RelayCommand(OpenSideBar);
-        HomeViewModel = Program.AppHost.Services.GetRequiredService<HomeViewModel>();
         SideBarViewModel = new SideBarViewModel(this);
+        NotificationViewModel = new NotificationViewModel();
+        HomeViewModel = Program.AppHost.Services.GetRequiredService<HomeViewModel>();
+
+        WeakReferenceMessenger.Default.Register<NavigateToHomeMessage>(this, (r, m) =>
+        {
+            CurrentView = Program.AppHost.Services.GetRequiredService<HomeViewModel>();
+        });
+
+        WeakReferenceMessenger.Default.Register<ShowNotificationMessage>(this, async (r, m) =>
+        {
+            await NotificationViewModel.ShowNotificationAsync(m.Message, m.Type, m.Delay);
+        });
     }
 
     public void OpenSideBar()
@@ -49,6 +64,11 @@ public partial class MainViewModel : ViewModelBase
         };
 
         CloseSideBar();
+    }
+
+    public async Task ShowNotificationAsync(string message, NotificationType notificationType, int delay)
+    {
+        await NotificationViewModel.ShowNotificationAsync(message, notificationType, delay);
     }
 
 }

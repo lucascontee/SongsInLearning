@@ -40,6 +40,7 @@ namespace SongsInLearning
 
                    services.AddTransient<HomeViewModel>();
                    services.AddTransient<CreateSongViewModel>();
+                   services.AddTransient<NotificationViewModel>();
 
                })
                .Build();

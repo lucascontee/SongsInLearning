@@ -24,6 +24,7 @@ namespace SongsInLearning
                     DataContext = Program.AppHost.Services.GetRequiredService<MainViewModel>()
                 };
 
+
             }
 
             base.OnFrameworkInitializationCompleted();

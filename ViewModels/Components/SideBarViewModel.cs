@@ -16,15 +16,12 @@ public partial class SideBarViewModel : ViewModelBase
         set => SetProperty(ref _items, value);
     }
 
-    public SideBarViewModel()
-    {
-        CloseSideBarCommand = new RelayCommand(CloseSideBar);
-        BuildMenu();
-    }
-
-    public SideBarViewModel(MainViewModel mainViewModel) : this()
+    public SideBarViewModel(MainViewModel mainViewModel) 
     {
         _mainViewModel = mainViewModel;
+        CloseSideBarCommand = new RelayCommand(CloseSideBar);
+        BuildMenu();
+
     }
 
     public void BuildMenu()

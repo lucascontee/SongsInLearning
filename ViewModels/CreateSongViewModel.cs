@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using FluentValidation.Results;
 using Microsoft.Extensions.Logging;
+using SongsInLearning.Messages;
 using SongsInLearning.Models;
 using SongsInLearning.Models.Enums;
 using SongsInLearning.Services;
@@ -20,8 +22,7 @@ public partial class CreateSongViewModel : ViewModelBase
     private SongService _songService;
 
     public CreateSongViewModel(SongService SongService)
-    {
-
+    {   
         _songService = SongService;
         Difficulties = Enum.GetValues<Difficulty>().ToList();
         Tunings = Enum.GetValues<Tuning>().ToList();
@@ -31,8 +32,8 @@ public partial class CreateSongViewModel : ViewModelBase
 
     [ObservableProperty] private string name = string.Empty;
     [ObservableProperty] private string artist = string.Empty;
-    [ObservableProperty] private string yearText;
-    [ObservableProperty] private string bpmText;
+    [ObservableProperty] private string yearText = string.Empty;
+    [ObservableProperty] private string bpmText = string.Empty;
     [ObservableProperty] private Difficulty selectedDifficulty = Difficulty.Medium;
     [ObservableProperty] private Tuning selectedTuning = Tuning.DefaultTuning;
     [ObservableProperty] private Instrument selectedInstrument = Instrument.Guitar;
@@ -107,5 +108,8 @@ public partial class CreateSongViewModel : ViewModelBase
         SelectedTuning = Tuning.DefaultTuning;
         SelectedInstrument = Instrument.Guitar;
         SelectedProgress = Progress.Learn;
+
+        WeakReferenceMessenger.Default.Send(new ShowNotificationMessage("Música salva com sucesso!", NotificationType.Success, 5000));
+        WeakReferenceMessenger.Default.Send(new NavigateToHomeMessage());
     }
 }

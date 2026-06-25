@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:songsinlearning="using:SongsInLearning"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="using:SongsInLearning.ViewModels"
              xmlns:views="using:SongsInLearning.Views"
@@ -13,7 +14,13 @@
       <Setter Property="FontSize" Value="16"/>
     </Style>
   </UserControl.Styles>
-
+<Grid>
+<views:NotificationView Margin="20"
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Top"
+			ZIndex="999"
+			DataContext="{Binding NotificationViewModel}"
+            IsVisible="{Binding IsVisible}"/>
   <SplitView IsPaneOpen="True"
 				   OpenPaneLength="300"
 				   CompactPaneLength="48"
@@ -26,11 +33,6 @@
 				<Border BorderBrush="#4e4e4e" BorderThickness="0, 0, 1, 0">
 					<Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
 						<Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
-
-							<Grid IsVisible="True" Margin="10, 5" Classes="app-info-panel" Grid.Column="0" HorizontalAlignment="Stretch" Grid.RowDefinitions="*, Auto" ColumnDefinitions="*, 90">
-								<Grid HorizontalAlignment="Center" Grid.Column="1" RowDefinitions="*, 15">
-								</Grid>
-							</Grid>
 
 							<StackPanel Margin="10, 10, 10, 40" 
 										Orientation="Horizontal" 
@@ -59,6 +61,7 @@
 			</SplitView.Pane>
 			
 		<SplitView.Content>
+			<Panel>
 				<Grid ColumnDefinitions="*" RowDefinitions="auto, *" >
 					<Grid.Background>
 						<LinearGradientBrush StartPoint="0%,100%" EndPoint="100%, 0%">
@@ -73,7 +76,11 @@
 					                Content="{Binding CurrentView}"
 					                HorizontalAlignment="Stretch"
 					                VerticalAlignment="Stretch"/>
-				</Grid>
+				</Grid>				
+			</Panel>
+
 			</SplitView.Content>
+
 		</SplitView>
+</Grid>
 </UserControl>
