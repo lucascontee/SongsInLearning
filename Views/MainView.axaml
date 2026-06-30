@@ -8,79 +8,78 @@
              xmlns:views="using:SongsInLearning.Views"
              x:DataType="vm:MainViewModel"
              x:Class="SongsInLearning.Views.MainView">
-<UserControl.Styles>
-    <Style Selector="ListBoxItem">
-      <Setter Property="Padding" Value="15 10"/>
-      <Setter Property="FontSize" Value="16"/>
-    </Style>
-  </UserControl.Styles>
-<Grid>
-<views:NotificationView Margin="20"
-            HorizontalAlignment="Right" 
-            VerticalAlignment="Top"
-			ZIndex="999"
-			DataContext="{Binding NotificationViewModel}"
-            IsVisible="{Binding IsVisible}"/>
-  <SplitView IsPaneOpen="True"
-				   OpenPaneLength="300"
-				   CompactPaneLength="48"
-				   DisplayMode="CompactInline"
-				   Background="#2c2c2c"
-				   PaneBackground="#2c2c2c"
-				   Grid.RowSpan="5"
-				   >
-			<SplitView.Pane>
-				<Border BorderBrush="#4e4e4e" BorderThickness="0, 0, 1, 0">
-					<Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
-						<Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
 
-							<StackPanel Margin="10, 10, 10, 40" 
-										Orientation="Horizontal" 
-										Spacing="10" 
-										VerticalAlignment="Center">
-    
-								<Image Source="avares://SongsInLearning/Assets/logosil.png" 
-									   Width="32" 
-									   Height="32" 
-									   VerticalAlignment="Center" />
-    
-								<TextBlock Text="Songs In Learning" 
-										   Foreground="#e8e8e8" 
-										   VerticalAlignment="Center" 
-										   FontSize="18" 
-										   FontWeight="SemiBold"/>
-               
-							</StackPanel>
+    <UserControl.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="Padding" Value="15 10"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </UserControl.Styles>
 
-						</Grid>
-						<Grid Grid.Row="2" Grid.RowDefinitions="Auto, *" IsVisible="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-							<views:SideBarView DataContext="{Binding SideBarViewModel}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-						</Grid>
-					</Grid>
-				</Border>
-			</SplitView.Pane>
-			
-		<SplitView.Content>
-			<Panel>
-				<Grid ColumnDefinitions="*" RowDefinitions="auto, *" >
-					<Grid.Background>
-						<LinearGradientBrush StartPoint="0%,100%" EndPoint="100%, 0%">
-							<GradientStop Color="#2c2c2c" Offset="0.2"/>
-							<GradientStop Color="#2c2c2c" Offset="0.5"/>
-							<GradientStop Color="#2c2c2c" Offset="0.9"/>
-							<GradientStop Color="#2c2c2c" Offset="1"/>
-						</LinearGradientBrush>
-					</Grid.Background>
+    <Grid>
+        <views:NotificationView Margin="20"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                ZIndex="999"
+                                DataContext="{Binding NotificationViewModel}"
+                                IsVisible="{Binding IsVisible}"/>
 
-					<ContentControl Grid.Row="1" 
-					                Content="{Binding CurrentView}"
-					                HorizontalAlignment="Stretch"
-					                VerticalAlignment="Stretch"/>
-				</Grid>				
-			</Panel>
+        <SplitView IsPaneOpen="True"
+                   OpenPaneLength="300"
+                   CompactPaneLength="48"
+                   DisplayMode="CompactInline"
+                   Background="#2c2c2c"
+                   PaneBackground="#2c2c2c"
+                   Grid.RowSpan="5">
 
-			</SplitView.Content>
+            <SplitView.Pane>
+                <Border BorderBrush="#4e4e4e" BorderThickness="0, 0, 1, 0">
+                    <Grid RowDefinitions="Auto, Auto, *" HorizontalAlignment="Stretch">
+                        <Grid Classes="app-info-wrapper" RowDefinitions="Auto, *" HorizontalAlignment="Stretch" ColumnDefinitions="*, 50">
+                            <StackPanel Margin="10, 10, 10, 40"
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalAlignment="Center">
 
-		</SplitView>
-</Grid>
+                                <Image Source="avares://SongsInLearning/Assets/logosil.png"
+                                       Width="32"
+                                       Height="32"
+                                       VerticalAlignment="Center" />
+
+                                <TextBlock Text="Songs In Learning"
+                                           Foreground="#e8e8e8"
+                                           VerticalAlignment="Center"
+                                           FontSize="18"
+                                           FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.RowDefinitions="Auto, *" IsVisible="True" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <views:SideBarView DataContext="{Binding SideBarViewModel}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <Panel>
+                    <Grid ColumnDefinitions="*" RowDefinitions="auto, *">
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0%,100%" EndPoint="100%, 0%">
+                                <GradientStop Color="#2c2c2c" Offset="0.2"/>
+                                <GradientStop Color="#2c2c2c" Offset="0.5"/>
+                                <GradientStop Color="#2c2c2c" Offset="0.9"/>
+                                <GradientStop Color="#2c2c2c" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+
+                        <ContentControl Grid.Row="1"
+                                        Content="{Binding CurrentView}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"/>
+                    </Grid>
+                </Panel>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
 </UserControl>

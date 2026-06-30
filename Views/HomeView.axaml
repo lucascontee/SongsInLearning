@@ -9,13 +9,57 @@
              x:Class="SongsInLearning.Views.HomeView"
              Background="#2c2c2c">
 
-    <ScrollViewer>
-        <ItemsControl ItemsSource="{Binding SongCards}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <views:SongCardView />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </ScrollViewer>
+<ScrollViewer>
+    <StackPanel Spacing="20" Margin="20">
+        
+        <StackPanel Spacing="10">
+            <TextBlock Text="Músicas em andamento:" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <ItemsControl ItemsSource="{Binding InProgress}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Spacing="10"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:SongCardView />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+        <StackPanel Spacing="10">
+            <TextBlock Text="Músicas para aprender:" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <ItemsControl ItemsSource="{Binding ToLearn}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Spacing="10"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:SongCardView />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+        <StackPanel Spacing="10">
+            <TextBlock Text="Músicas aprendidas:" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <ItemsControl ItemsSource="{Binding Learned}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Spacing="10"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:SongCardView />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+    </StackPanel>
+</ScrollViewer>
 </UserControl>
