@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SongsInLearning.StudioView">
+   <StackPanel Spacing="15" Margin="0,0,0,20">
+                <TextBlock Text="Estúdio de Prática" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           Foreground="#e8e8e8"/>
+  
+                <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,5,0,10">
+                    <Button Background="Transparent" BorderBrush="#1f1f1f" Width="45" Height="45" CornerRadius="25">
+                        <Path Data="{StaticResource RecRegular}" 
+                              Fill="#cc0000" 
+                              Stretch="Uniform" 
+                              Width="18" 
+                              Height="18"/>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="#1f1f1f" Width="45" Height="45" CornerRadius="25">
+                        <Path Data="{StaticResource PlayCircleRegular}" 
+                              Fill="#00ab73" 
+                              Stretch="Uniform" 
+                              Width="18" 
+                              Height="18"/>
+                    </Button>
+                </StackPanel>
+
+                <Border Background="#1c1c1c" BorderBrush="#4e4e4e" BorderThickness="1" CornerRadius="8" Height="90" Padding="10">
+                    <Grid ColumnDefinitions="120, *">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Track 1" Foreground="#e8e8e8" FontWeight="SemiBold"/>
+                            <TextBlock Text="Input 1" Foreground="#8e8e8e" FontSize="12"/>
+                        </StackPanel>
+                        
+                        <Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0">
+                            <TextBlock Text="" 
+                                       Foreground="#4e4e4e" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border Background="#1c1c1c" BorderBrush="#4e4e4e" BorderThickness="1" CornerRadius="8" Height="90" Padding="10">
+                    <Grid ColumnDefinitions="120, *">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Track 2 (Wet)" Foreground="#e8e8e8" FontWeight="SemiBold"/>
+                            <TextBlock Text="AmpliTube 5" Foreground="#00ab73" FontSize="12"/>
+                        </StackPanel>
+                        
+                        <Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0">
+                            <TextBlock Text="[ Área para retorno com efeitos / Backing track ]" 
+                                       Foreground="#4e4e4e" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+</UserControl>

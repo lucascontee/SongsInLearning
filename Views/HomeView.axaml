@@ -2,73 +2,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              xmlns:vm="using:SongsInLearning.ViewModels"
              xmlns:views="using:SongsInLearning.Views"
              x:DataType="vm:HomeViewModel"
              x:Class="SongsInLearning.Views.HomeView"
              Background="#2c2c2c">
 
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-        <StackPanel Spacing="20" Margin="20">
-            
-            <StackPanel Spacing="10">
-                <TextBlock Text="Músicas em andamento:" Foreground="White" FontSize="18" FontWeight="Bold"/>
+    <Grid RowDefinitions="Auto, *">
+        
+        <Border Grid.Row="0" 
+                Background="#363636" 
+                CornerRadius="10" 
+                Padding="15" 
+                Margin="20,20,20,10">
+            <Grid ColumnDefinitions="*, Auto">
                 
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                    <ItemsControl ItemsSource="{Binding InProgress}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:SongCardView />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </StackPanel>
-
-            <StackPanel Spacing="10">
-                <TextBlock Text="Músicas para aprender:" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                <TextBox Grid.Column="0"
+                         Text="{Binding SearchText}" 
+                         Watermark="Pesquisar por nome ou artista..." 
+                         Background="#2c2c2c" 
+                         BorderBrush="#4e4e4e"
+                         Margin="0,0,15,0"
+                         VerticalAlignment="Center"/>
                 
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                    <ItemsControl ItemsSource="{Binding ToLearn}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:SongCardView />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </StackPanel>
+                <ComboBox Grid.Column="1" 
+                          ItemsSource="{Binding AvailableStatusFilters}" 
+                          SelectedItem="{Binding SelectedStatusFilter}"
+                          Width="200"
+                          Background="#2c2c2c"
+                          BorderBrush="#4e4e4e"
+                          VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
 
-            <StackPanel Spacing="10">
-                <TextBlock Text="Músicas aprendidas:" Foreground="White" FontSize="18" FontWeight="Bold"/>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding FilteredSongs}" Margin="15,0,15,20">
                 
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                    <ItemsControl ItemsSource="{Binding Learned}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:SongCardView />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </StackPanel>
-
-        </StackPanel>
-    </ScrollViewer>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:SongCardView />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                
+            </ItemsControl>
+        </ScrollViewer>
+        
+    </Grid>
 </UserControl>

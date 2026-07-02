@@ -1,4 +1,5 @@
-﻿using SongsInLearning.Models.Enums;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SongsInLearning.Models.Enums;
 using SongsInLearning.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,33 +12,85 @@ public partial class HomeViewModel : ViewModelBase
 {
     private readonly SongService _songService;
 
-    public ObservableCollection<SongCardViewModel> SongCards { get; } = new();
-    public IEnumerable<SongCardViewModel> InProgress =>
-            SongCards.Where(s => s.ProgressEnum == Progress.Learning);
+    private List<SongCardViewModel> _allSongsCache = new();
 
-    public IEnumerable<SongCardViewModel> ToLearn =>
-        SongCards.Where(s => s.ProgressEnum == Progress.Learn);
+    [ObservableProperty]
+    private string _searchText = string.Empty;
 
-    public IEnumerable<SongCardViewModel> Learned =>
-        SongCards.Where(s => s.ProgressEnum == Progress.Learned);
+    [ObservableProperty]
+    private string _selectedStatusFilter = "Todos";
+
+    public ObservableCollection<SongCardViewModel> FilteredSongs { get; } = new();
+
+    public List<string> AvailableStatusFilters { get; } = new()
+    {
+        "Todos",
+        "Na lista de espera",
+        "Em prática",
+        "Dominada"
+    };
 
     public HomeViewModel(SongService songService)
     {
         _songService = songService;
-        LoadSongs();
+        _ = LoadSongsAsync();
     }
 
-    private async Task LoadSongs()
+    private async Task LoadSongsAsync()
     {
         var songs = await _songService.GetAllAsync();
-        SongCards.Clear();
+
+        _allSongsCache.Clear();
         foreach (var song in songs)
         {
-            SongCards.Add(new SongCardViewModel(song));
+            _allSongsCache.Add(new SongCardViewModel(song));
         }
 
-        OnPropertyChanged(nameof(InProgress));
-        OnPropertyChanged(nameof(ToLearn));
-        OnPropertyChanged(nameof(Learned));
+        ApplyFilters();
+    }
+
+    partial void OnSearchTextChanged(string value)
+    {
+        ApplyFilters();
+    }
+
+    partial void OnSelectedStatusFilterChanged(string value)
+    {
+        ApplyFilters();
+    }
+
+    private void ApplyFilters()
+    {
+        var filteredList = _allSongsCache.AsEnumerable();
+
+        if (!string.IsNullOrWhiteSpace(SearchText))
+        {
+            var searchLower = SearchText.ToLower();
+            filteredList = filteredList.Where(s =>
+                s.Name.ToLower().Contains(searchLower) ||
+                s.Artist.ToLower().Contains(searchLower));
+        }
+
+        if (SelectedStatusFilter != "Todos")
+        {
+            var targetStatus = SelectedStatusFilter switch
+            {
+                "Na lista de espera" => Progress.Learn,
+                "Em prática" => Progress.Learning,
+                "Dominada" => Progress.Learned,
+                _ => (Progress?)null
+            };
+
+            if (targetStatus.HasValue)
+            {
+                filteredList = filteredList.Where(s => s.ProgressEnum == targetStatus.Value);
+            }
+        }
+
+        FilteredSongs.Clear();
+        foreach (var song in filteredList)
+        {
+            FilteredSongs.Add(song);
+        }
     }
 }
