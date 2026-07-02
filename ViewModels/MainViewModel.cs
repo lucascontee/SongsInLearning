@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SongsInLearning.Database;
 using SongsInLearning.Messages;
 using SongsInLearning.Models.Enums;
+using SongsInLearning.Services;
 using System.Threading.Tasks;
 
 namespace SongsInLearning.ViewModels;
@@ -41,6 +42,12 @@ public partial class MainViewModel : ObservableObject
         WeakReferenceMessenger.Default.Register<ShowNotificationMessage>(this, async (r, m) =>
         {
             await NotificationViewModel.ShowNotificationAsync(m.Message, m.Type, m.Delay);
+        });
+
+        WeakReferenceMessenger.Default.Register<NavigateToEditSongMessage>(this, (r, m) =>
+        {
+            var songService = Program.AppHost.Services.GetRequiredService<SongService>();
+            CurrentView = new EditSongViewModel(songService, m.SongToEdit);
         });
     }
 

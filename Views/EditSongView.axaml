@@ -1,0 +1,201 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1000"
+             xmlns:vm="using:SongsInLearning.ViewModels"
+             x:DataType="vm:EditSongViewModel"
+             x:Class="SongsInLearning.Views.EditSongView"
+             Background="#2c2c2c">
+
+    <UserControl.Styles>
+        <Style Selector="ComboBox:focus /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#3f3f3f" />
+        </Style>
+
+        <Style Selector="ComboBox:dropdownopen /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#3f3f3f" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#454545" /> 
+        </Style>
+
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="#3f3f3f" />
+        </Style>
+
+        <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="BorderBrush" Value="#00ab73" />
+            <Setter Property="Background" Value="#454545" /> 
+        </Style>
+
+        <Style Selector="Button.primary:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#008a5c" /> 
+            <Setter Property="Foreground" Value="#e8e8e8" /> 
+        </Style>
+        
+        <Style Selector="Button.danger:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#a10000" /> 
+            <Setter Property="Foreground" Value="#e8e8e8" /> 
+        </Style>
+    </UserControl.Styles>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="25" Margin="30">
+            
+            <TextBlock Text="Editar Música" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       Foreground="#e8e8e8"/>
+
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*, *" Margin="0,10,0,0">
+                
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,10,15" Spacing="5">
+                    <TextBlock Text="Nome da Música" Foreground="#e8e8e8" />
+                    <TextBox Text="{Binding Name}" Background="#3f3f3f" BorderBrush="#4e4e4e" Watermark="Ex: Sweet Child O' Mine"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="10,0,0,15" Spacing="5">
+                    <TextBlock Text="Artista" Foreground="#e8e8e8" />
+                    <TextBox Text="{Binding Artist}" Background="#3f3f3f" BorderBrush="#4e4e4e" Watermark="Ex: Guns N' Roses"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,10,15" Spacing="5">
+                    <TextBlock Text="Ano" Foreground="#e8e8e8" />
+                    <TextBox Text="{Binding YearText}" Background="#3f3f3f" BorderBrush="#4e4e4e" Watermark="Ex: 1987"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10,0,0,15" Spacing="5">
+                    <TextBlock Text="BPM" Foreground="#e8e8e8" />
+                    <TextBox Text="{Binding BpmText}" Background="#3f3f3f" BorderBrush="#4e4e4e" Watermark="Ex: 120"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,0,10,15" Spacing="5">
+                    <TextBlock Text="Instrumento" Foreground="#e8e8e8" />
+                    <ComboBox SelectedItem="{Binding SelectedInstrument}" 
+                              ItemsSource="{Binding AvailableInstruments}" 
+                              Background="#3f3f3f" BorderBrush="#4e4e4e"
+                              HorizontalAlignment="Stretch"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="10,0,0,15" Spacing="5">
+                    <TextBlock Text="Dificuldade" Foreground="#e8e8e8" />
+                    <ComboBox SelectedItem="{Binding SelectedDifficulty}" 
+                              ItemsSource="{Binding AvailableDifficulties}" 
+                              Background="#3f3f3f" BorderBrush="#4e4e4e"
+                              HorizontalAlignment="Stretch"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="0" Margin="0,0,10,15" Spacing="5">
+                    <TextBlock Text="Afinação" Foreground="#e8e8e8" />
+                    <ComboBox SelectedItem="{Binding SelectedTuning}" 
+                              ItemsSource="{Binding AvailableTunings}" 
+                              Background="#3f3f3f" BorderBrush="#4e4e4e"
+                              HorizontalAlignment="Stretch"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="1" Margin="10,0,0,15" Spacing="5">
+                    <TextBlock Text="Progresso" Foreground="#e8e8e8" />
+                    <ComboBox SelectedItem="{Binding SelectedProgress}" 
+                              ItemsSource="{Binding AvailableProgresses}" 
+                              Background="#3f3f3f" BorderBrush="#4e4e4e"
+                              HorizontalAlignment="Stretch"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15" Spacing="5">
+                    <TextBlock Text="Suas Anotações" Foreground="#e8e8e8" />
+                    <TextBox Text="{Binding UserAnnotations}" AcceptsReturn="True" Height="100" TextWrapping="Wrap" Background="#3f3f3f" BorderBrush="#4e4e4e" Watermark="Ex: Focar no vibrato do solo..."/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15" Spacing="5">
+                    <TextBlock Text="Informações da IA" Foreground="#e8e8e8" />
+                    <TextBox Text="{Binding InfosGeneratedByIA}" AcceptsReturn="True" Height="100" TextWrapping="Wrap" Background="#3f3f3f" BorderBrush="#4e4e4e"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="15">
+                <Button Classes="danger"
+                        Content="Deletar Música" 
+                        Command="{Binding DeleteCommand}"
+                        Background="#8b0000" 
+                        Foreground="#e8e8e8"
+                        Padding="15,10"
+                        CornerRadius="5"/>
+                
+                <Button Classes="primary"
+                        Content="Salvar Alterações" 
+                        Command="{Binding SaveCommand}"
+                        Background="#00ab73" 
+                        Foreground="#e8e8e8"
+                        FontWeight="Bold"
+                        Padding="20,10"
+                        CornerRadius="5"/>
+            </StackPanel>
+
+            <Separator Background="#4e4e4e" Margin="0,10"/>
+
+            <StackPanel Spacing="15" Margin="0,0,0,20">
+                <TextBlock Text="Estúdio de Prática" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           Foreground="#e8e8e8"/>
+  
+                <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,5,0,10">
+                    <Button Background="Transparent" BorderBrush="#1f1f1f" Width="45" Height="45" CornerRadius="25">
+                        <Path Data="{StaticResource RecRegular}" 
+                              Fill="#cc0000" 
+                              Stretch="Uniform" 
+                              Width="18" 
+                              Height="18"/>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="#1f1f1f" Width="45" Height="45" CornerRadius="25">
+                        <Path Data="{StaticResource PlayCircleRegular}" 
+                              Fill="#00ab73" 
+                              Stretch="Uniform" 
+                              Width="18" 
+                              Height="18"/>
+                    </Button>
+                </StackPanel>
+
+                <Border Background="#1c1c1c" BorderBrush="#4e4e4e" BorderThickness="1" CornerRadius="8" Height="90" Padding="10">
+                    <Grid ColumnDefinitions="120, *">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Track 1" Foreground="#e8e8e8" FontWeight="SemiBold"/>
+                            <TextBlock Text="Input 1" Foreground="#8e8e8e" FontSize="12"/>
+                        </StackPanel>
+                        
+                        <Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0">
+                            <TextBlock Text="" 
+                                       Foreground="#4e4e4e" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border Background="#1c1c1c" BorderBrush="#4e4e4e" BorderThickness="1" CornerRadius="8" Height="90" Padding="10">
+                    <Grid ColumnDefinitions="120, *">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Track 2 (Wet)" Foreground="#e8e8e8" FontWeight="SemiBold"/>
+                            <TextBlock Text="AmpliTube 5" Foreground="#00ab73" FontSize="12"/>
+                        </StackPanel>
+                        
+                        <Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0">
+                            <TextBlock Text="[ Área para retorno com efeitos / Backing track ]" 
+                                       Foreground="#4e4e4e" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

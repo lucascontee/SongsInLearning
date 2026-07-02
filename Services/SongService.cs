@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Mscc.GenerativeAI;
 using SongsInLearning.Database;
 using SongsInLearning.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SongsInLearning.Services;
@@ -33,6 +35,18 @@ public class SongService
         song.InfosGeneratedByIA = iaInfosToString;
 
         _context.Musics.Add(song);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(Song song)
+    {
+        _context.Musics.Update(song);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int songId)
+    {
+        _context.Musics.Where(p => p.Id == songId).ExecuteDelete();
         await _context.SaveChangesAsync();
     }
 }

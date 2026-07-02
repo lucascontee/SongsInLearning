@@ -1,4 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using SongsInLearning.Messages;
 using SongsInLearning.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +13,8 @@ namespace SongsInLearning.ViewModels;
 
 public partial class SongCardViewModel : ViewModelBase
 {
+    private readonly Song _song;
+
     [ObservableProperty] private string _name = "";
     [ObservableProperty] private string _artist = "";
     [ObservableProperty] private int _year;
@@ -21,6 +26,7 @@ public partial class SongCardViewModel : ViewModelBase
 
     public SongCardViewModel(Song song)
     {
+        _song = song;
         Name = song.Name;
         Artist = song.Artist;
         Year = song.Year;
@@ -53,5 +59,11 @@ public partial class SongCardViewModel : ViewModelBase
             Models.Enums.Difficulty.Extreme => "Extrema",
             _ => "Status não definido"
         };
+    }
+
+    [RelayCommand]
+    public void EditSong()
+    {
+        WeakReferenceMessenger.Default.Send(new NavigateToEditSongMessage(_song));
     }
 }
