@@ -49,6 +49,11 @@ public partial class MainViewModel : ObservableObject
             var songService = Program.AppHost.Services.GetRequiredService<SongService>();
             CurrentView = new EditSongViewModel(songService, m.SongToEdit);
         });
+
+        WeakReferenceMessenger.Default.Register<NavigateToStudioMessage>(this, (r, m) =>
+        {
+            CurrentView = new StudioViewModel(m.SongToRecord);
+        });
     }
 
     public void OpenSideBar()

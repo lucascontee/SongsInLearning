@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace SongsInLearning;
+namespace SongsInLearning.Views;
 
 public partial class StudioView : UserControl
 {

@@ -100,4 +100,10 @@ public partial class EditSongViewModel : ViewModelBase
         WeakReferenceMessenger.Default.Send(new ShowNotificationMessage("Música excluída.", NotificationType.Information, 4000));
         WeakReferenceMessenger.Default.Send(new NavigateToHomeMessage());
     }
+
+    [RelayCommand]
+    public void OpenStudio()
+    {
+        WeakReferenceMessenger.Default.Send(new NavigateToStudioMessage(_originalSong));
+    }
 }
