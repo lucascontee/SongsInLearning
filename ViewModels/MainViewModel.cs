@@ -27,7 +27,7 @@ public partial class MainViewModel : ObservableObject
     public IRelayCommand OpenSideBarCommand { get; }
 
 
-    public MainViewModel()
+    public MainViewModel(VstPluginService vstService)
     {
         OpenSideBarCommand = new RelayCommand(OpenSideBar);
         SideBarViewModel = new SideBarViewModel(this);
@@ -52,8 +52,10 @@ public partial class MainViewModel : ObservableObject
 
         WeakReferenceMessenger.Default.Register<NavigateToStudioMessage>(this, (r, m) =>
         {
-            CurrentView = new StudioViewModel(m.SongToRecord);
+            CurrentView = new StudioViewModel(m.SongToRecord, vstService);
         });
+
+    
     }
 
     public void OpenSideBar()

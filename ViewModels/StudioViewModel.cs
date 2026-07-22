@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using NAudio.Wave;
 using SongsInLearning.Models;
+using SongsInLearning.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -24,22 +25,32 @@ public partial class StudioViewModel : ViewModelBase
     private WaveOutEvent? _waveOut;
     private AudioFileReader? _audioFileReader;
     private string _audioFilePath = string.Empty;
-
     public ObservableCollection<double> WaveformPeaks { get; } = new();
 
     public ObservableCollection<string> AvailableInputDevices { get; } = new();
     [ObservableProperty]
     private int _selectedDeviceIndex = 0;
 
-    public StudioViewModel(Song song)
+    private readonly VstPluginService _vstPluginService;
+
+    [ObservableProperty]
+    private string _loadedPluginName = "Nenhum plugin carregado";
+    public StudioViewModel(Song song, VstPluginService vstPluginService)
     {
         CurrentSong = song;
+        _vstPluginService = vstPluginService;
 
         string appFolder = Path.Combine("D:", "SongsInLearning", "Audio");
         Directory.CreateDirectory(appFolder);
 
         _audioFilePath = Path.Combine(appFolder, $"Song_{CurrentSong.Id}_Track1.wav");
         LoadInputDevices();
+    }
+
+    public void LoadVstPlugin(string dllPath)
+    {
+        _vstPluginService.LoadPlugin(dllPath);
+        LoadedPluginName = _vstPluginService.PluginName;
     }
 
     [RelayCommand]
@@ -55,10 +66,8 @@ public partial class StudioViewModel : ViewModelBase
 
     private void StartPlayback()
     {
-        // Verifica se o arquivo de áudio realmente existe antes de tentar tocar
         if (!File.Exists(_audioFilePath))
         {
-            // Opcional: Você pode disparar uma notificação aqui avisando que não há gravação
             return;
         }
 
@@ -160,24 +169,23 @@ public partial class StudioViewModel : ViewModelBase
 
     private void OnDataAvailable(object? sender, WaveInEventArgs e)
     {
+        byte[] processedAudio = _vstPluginService.ProcessAudio(e.Buffer, e.BytesRecorded);
+
         if (_waveFileWriter != null)
         {
-            _waveFileWriter.Write(e.Buffer, 0, e.BytesRecorded);
+            _waveFileWriter.Write(processedAudio, 0, e.BytesRecorded);
             _waveFileWriter.Flush();
         }
 
         float max = 0;
-
-
         for (int i = 0; i < e.BytesRecorded; i += 2)
         {
-            short sample = (short)((e.Buffer[i + 1] << 8) | e.Buffer[i]);
+            short sample = (short)((processedAudio[i + 1] << 8) | processedAudio[i]);
             var absSample = Math.Abs(sample);
             if (absSample > max) max = absSample;
         }
 
         double height = (max / 32768.0) * 70.0;
-
         if (height < 2) height = 2;
 
         Dispatcher.UIThread.Post(() =>

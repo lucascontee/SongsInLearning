@@ -35,6 +35,7 @@ namespace SongsInLearning
                    services.AddSingleton(context.Configuration);
                    services.AddTransient<IAService>();
                    services.AddTransient<SongService>();
+                   services.AddSingleton<VstPluginService>();
 
                    services.AddSingleton<MainViewModel>();
 

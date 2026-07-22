@@ -141,10 +141,11 @@
 		</Border>
 		<Border Background="#1c1c1c" BorderBrush="#4e4e4e" BorderThickness="1" CornerRadius="8" Height="90" Padding="10">
 			<Grid ColumnDefinitions="120, *">
-				<StackPanel VerticalAlignment="Center">
-					<TextBlock Text="Track 2 (Wet)" Foreground="#e8e8e8" FontWeight="SemiBold"/>
-					<TextBlock Text="AmpliTube 5" Foreground="#00ab73" FontSize="12"/>
-				</StackPanel>
+			<StackPanel VerticalAlignment="Center">
+				<TextBlock Text="Track 2 (Wet)" Foreground="#e8e8e8" FontWeight="SemiBold"/>
+    
+				<TextBlock Text="{Binding LoadedPluginName}" Foreground="#00ab73" FontSize="12"/>
+			</StackPanel>
 
 				<Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0">
 					<TextBlock Text="[ Área para retorno com efeitos / Backing track ]"
@@ -155,14 +156,14 @@
 			</Grid>
 		</Border>
 
-		<Button Background="Transparent"
+		<Button Click="OnSelectPluginClicked"
+				Background="Transparent"
 				Padding="20,10"
 				CornerRadius="5"
 				BorderBrush="#4e4e4e"
 				BorderThickness="1"
 				HorizontalContentAlignment="Center"
 				VerticalContentAlignment="Center">
-
 			<StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center" VerticalAlignment="Center">
 				<Path Data="{StaticResource WrenchRegular}"
 					  VerticalAlignment="Center"
