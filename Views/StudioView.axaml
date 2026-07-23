@@ -2,7 +2,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
 			 xmlns:vm="using:SongsInLearning.ViewModels"
 			 x:DataType="vm:StudioViewModel"
 			 x:Class="SongsInLearning.Views.StudioView"
@@ -107,7 +107,7 @@
 			<Grid ColumnDefinitions="120, *">
 				<StackPanel VerticalAlignment="Center">
 					<TextBlock Text="Track 1" Foreground="#e8e8e8" FontWeight="SemiBold"/>
-					<TextBlock Text="Input 1" Foreground="#8e8e8e" FontSize="12"/>
+				<TextBlock Text="{Binding LoadedPluginName}" Foreground="#00ab73" FontSize="12"/>
 				</StackPanel>
 
 				<Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0" ClipToBounds="True">
@@ -140,22 +140,56 @@
 			</Grid>
 		</Border>
 		<Border Background="#1c1c1c" BorderBrush="#4e4e4e" BorderThickness="1" CornerRadius="8" Height="90" Padding="10">
-			<Grid ColumnDefinitions="120, *">
-			<StackPanel VerticalAlignment="Center">
-				<TextBlock Text="Track 2 (Wet)" Foreground="#e8e8e8" FontWeight="SemiBold"/>
-    
-				<TextBlock Text="{Binding LoadedPluginName}" Foreground="#00ab73" FontSize="12"/>
-			</StackPanel>
+    <Grid ColumnDefinitions="140, *">
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Backing Track" Foreground="#e8e8e8" FontWeight="SemiBold"/>
+            <!-- Mostra o nome do arquivo selecionado -->
+            <TextBlock Text="{Binding BackingTrackName}" Foreground="#00ab73" FontSize="11" Margin="0,2,0,5" TextTrimming="CharacterEllipsis" MaxWidth="130"/>
+            
+            <Button Click="OnSelectBackingTrackClicked"
+                    Background="Transparent"
+                    CornerRadius="5"
+                    BorderBrush="#4e4e4e"
+                    BorderThickness="1"
+                    Padding="8,4">
+                <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Path Data="{StaticResource PaperclipRegular}"
+                          VerticalAlignment="Center"
+                          Fill="#00ab73"
+                          Stretch="Uniform"
+                          Width="14"
+                          Height="14"/>
+                    <TextBlock Text="Selecionar" FontSize="11" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
 
-				<Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0">
-					<TextBlock Text="[ Área para retorno com efeitos / Backing track ]"
-							   Foreground="#4e4e4e"
-							   HorizontalAlignment="Center"
-							   VerticalAlignment="Center"/>
-				</Border>
-			</Grid>
-		</Border>
+        <!-- Área onde a onda sonora do MP3/WAV será desenhada -->
+        <Border Grid.Column="1" Background="#2a2a2a" CornerRadius="4" Margin="10,0,0,0" ClipToBounds="True">
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding BackingTrackPeaks}" Margin="5,0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="1" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Cor azulada para diferenciar da gravação principal -->
+                            <Rectangle Width="2"
+                                       Height="{Binding}"
+                                       Fill="#4a7eb8" 
+                                       RadiusX="1"
+                                       RadiusY="1"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Border>
 
+		<StackPanel Orientation="Horizontal" Spacing="10">
 		<Button Click="OnSelectPluginClicked"
 				Background="Transparent"
 				Padding="20,10"
@@ -175,5 +209,9 @@
 			</StackPanel>
 		</Button>
 
+
+
+		</StackPanel>
+		
 	</StackPanel>
 </UserControl>

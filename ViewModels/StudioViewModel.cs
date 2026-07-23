@@ -7,6 +7,7 @@ using SongsInLearning.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace SongsInLearning.ViewModels;
 
@@ -35,6 +36,15 @@ public partial class StudioViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _loadedPluginName = "Nenhum plugin carregado";
+
+    private string _backingTrackFilePath = string.Empty;
+    private WaveOutEvent? _backingTrackOut;
+    private AudioFileReader? _backingTrackReader;
+
+    [ObservableProperty]
+    private string _backingTrackName = "Nenhuma trilha";
+
+    public ObservableCollection<double> BackingTrackPeaks { get; } = new();
     public StudioViewModel(Song song, VstPluginService vstPluginService)
     {
         CurrentSong = song;
@@ -79,6 +89,7 @@ public partial class StudioViewModel : ViewModelBase
             _waveOut.Init(_audioFileReader);
             _waveOut.PlaybackStopped += OnPlaybackStopped;
 
+            PlayBackingTrack();
             _waveOut.Play();
             IsPlaying = true;
         }
@@ -90,6 +101,7 @@ public partial class StudioViewModel : ViewModelBase
 
     private void StopPlayback()
     {
+        StopBackingTrack();
         _waveOut?.Stop();
     }
 
@@ -153,6 +165,7 @@ public partial class StudioViewModel : ViewModelBase
             _waveFileWriter = new WaveFileWriter(_audioFilePath, _waveIn.WaveFormat);
 
             _waveIn.StartRecording();
+            PlayBackingTrack();
             IsRecording = true;
         }
         catch (Exception ex)
@@ -164,6 +177,7 @@ public partial class StudioViewModel : ViewModelBase
     private void StopRecording()
     {
         _waveIn?.StopRecording();
+        StopBackingTrack();
         IsRecording = false;
     }
 
@@ -190,8 +204,88 @@ public partial class StudioViewModel : ViewModelBase
 
         Dispatcher.UIThread.Post(() =>
         {
-            WaveformPeaks.Add(height);
+            try
+            {
+
+                WaveformPeaks.Add(height);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
         });
+    }
+
+    public void LoadBackingTrack(string path)
+    {
+        _backingTrackFilePath = path;
+        BackingTrackName = Path.GetFileName(path);
+
+        Task.Run(() =>
+        {
+            try
+            {
+                using var reader = new AudioFileReader(path);
+                var peaks = new System.Collections.Generic.List<double>();
+
+                int bars = 300;
+                int samplesPerBar = (int)(reader.Length / (reader.WaveFormat.BlockAlign * bars));
+                if (samplesPerBar == 0) samplesPerBar = 1;
+
+                float[] buffer = new float[samplesPerBar];
+                int read;
+
+                while ((read = reader.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    float max = 0;
+                    for (int i = 0; i < read; i++)
+                    {
+                        if (Math.Abs(buffer[i]) > max) max = Math.Abs(buffer[i]);
+                    }
+
+                    double height = max * 70.0; 
+                    if (height < 2) height = 2;
+                    peaks.Add(height);
+                }
+
+                Dispatcher.UIThread.Post(() =>
+                {
+                    BackingTrackPeaks.Clear();
+                    foreach (var peak in peaks) BackingTrackPeaks.Add(peak);
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao gerar onda visual: {ex.Message}");
+            }
+        });
+    }
+
+    private void PlayBackingTrack()
+    {
+        if (string.IsNullOrEmpty(_backingTrackFilePath)) return;
+
+        try
+        {
+            _backingTrackOut?.Stop();
+            _backingTrackOut?.Dispose();
+            _backingTrackReader?.Dispose();
+
+            _backingTrackReader = new AudioFileReader(_backingTrackFilePath);
+            _backingTrackOut = new WaveOutEvent();
+            _backingTrackOut.Init(_backingTrackReader);
+            _backingTrackOut.Play();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao tocar backing track: {ex.Message}");
+        }
+    }
+
+    private void StopBackingTrack()
+    {
+        _backingTrackOut?.Stop();
     }
 
     private void OnRecordingStopped(object? sender, StoppedEventArgs e)

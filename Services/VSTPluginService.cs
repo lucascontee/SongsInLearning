@@ -35,7 +35,7 @@ public class VstPluginService : IDisposable
 
             commands.Open();
             commands.SetSampleRate(44100f);
-            commands.SetBlockSize(1024);
+            commands.SetBlockSize(8192);
             commands.MainsChanged(true);
 
             string product = commands.GetProductString() ?? commands.GetEffectName() ?? "Plugin VST";
